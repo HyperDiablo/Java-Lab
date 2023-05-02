@@ -1,0 +1,33 @@
+class practice
+{
+	public int add(int a,int b)
+	{
+		return a+b;
+	}
+	
+	public int add(int a,int b, int c)
+	{
+		return a+b+c;
+	}
+	public double add(double a,double b)
+	{
+		return a+b;
+	}
+}
+
+public class overpoly {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		practice p= new practice();
+		
+		System.out.println("Addition of two int nos. is: "+p.add(20,30));
+		
+		System.out.println("Addition of three int nos. is: "+p.add(20,30,40));
+		
+		System.out.println("Addition of two double nos. is: "+p.add(20.31,30.69));
+
+	}
+
+}

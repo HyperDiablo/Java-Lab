@@ -1,0 +1,863 @@
+ 26. DESIGN AN APPLET WHICH ACCEPTS PERSONAL DETAILS
+
+
+
+import javax.swing.*;
+
+public class PersonalDetailsApplet extends JApplet {
+    private JTextField nameField;
+    private JTextField addressField;
+    private JTextField phoneField;
+    private JButton submitButton;
+
+    public void init() {
+        // set up the GUI components
+        JLabel nameLabel = new JLabel("Name:");
+        nameField = new JTextField(20);
+
+        JLabel addressLabel = new JLabel("Address:");
+        addressField = new JTextField(20);
+
+        JLabel phoneLabel = new JLabel("Phone:");
+        phoneField = new JTextField(20);
+
+        submitButton = new JButton("Submit");
+
+        // set the layout of the applet
+        getContentPane().setLayout(new GridLayout(4, 2));
+
+        // add the components to the applet
+        getContentPane().add(nameLabel);
+        getContentPane().add(nameField);
+
+        getContentPane().add(addressLabel);
+        getContentPane().add(addressField);
+
+        getContentPane().add(phoneLabel);
+        getContentPane().add(phoneField);
+
+        getContentPane().add(submitButton);
+
+        // add an event listener to the submit button
+        submitButton.addActionListener(e -> {
+            String name = nameField.getText();
+            String address = addressField.getText();
+            String phone = phoneField.getText();
+
+            // do something with the personal details
+        });
+    }
+}
+
+
+
+
+
+    25. MULTIPLE INHERITANCE IN JAVA 
+
+
+
+interface A {
+  void methodA();
+}
+
+interface B {
+  void methodB();
+}
+
+class MyClass implements A, B {
+  public void methodA() {
+    System.out.println("Method A");
+  }
+
+  public void methodB() {
+    System.out.println("Method B");
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    MyClass obj = new MyClass();
+    obj.methodA();
+    obj.methodB();
+  }
+}
+
+
+
+In this program, we define two interfaces A and B with one method each. Then, we define a class MyClass that implements both interfaces. The class must implement all the methods defined in the interfaces.
+
+Finally, in the main method, we create an object of the MyClass and call both methods on it. This way, we can achieve multiple inheritance in Java using interfaces.
+
+
+
+
+
+
+   24. CALCULATER USING SWINGS 
+
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Calculator extends JFrame implements ActionListener {
+    
+    private JButton button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonEquals, buttonClear;
+    private JTextField textField;
+    private double number1, number2, result;
+    private String operator;
+    
+    public Calculator() {
+        setTitle("Calculator");
+        setSize(300, 400);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+        
+        // Create text field for display
+        textField = new JTextField();
+        add(textField, BorderLayout.NORTH);
+        
+        // Create button panel
+        JPanel buttonPanel = new JPanel(new GridLayout(4, 4));
+        
+        // Create number buttons
+        button0 = new JButton("0");
+        button0.addActionListener(this);
+        buttonPanel.add(button0);
+        
+        button1 = new JButton("1");
+        button1.addActionListener(this);
+        buttonPanel.add(button1);
+        
+        button2 = new JButton("2");
+        button2.addActionListener(this);
+        buttonPanel.add(button2);
+        
+        button3 = new JButton("3");
+        button3.addActionListener(this);
+        buttonPanel.add(button3);
+        
+        button4 = new JButton("4");
+        button4.addActionListener(this);
+        buttonPanel.add(button4);
+        
+        button5 = new JButton("5");
+        button5.addActionListener(this);
+        buttonPanel.add(button5);
+        
+        button6 = new JButton("6");
+        button6.addActionListener(this);
+        buttonPanel.add(button6);
+        
+        button7 = new JButton("7");
+        button7.addActionListener(this);
+        buttonPanel.add(button7);
+        
+        button8 = new JButton("8");
+        button8.addActionListener(this);
+        buttonPanel.add(button8);
+        
+        button9 = new JButton("9");
+        button9.addActionListener(this);
+        buttonPanel.add(button9);
+        
+        // Create operator buttons
+        buttonPlus = new JButton("+");
+        buttonPlus.addActionListener(this);
+        buttonPanel.add(buttonPlus);
+        
+        buttonMinus = new JButton("-");
+        buttonMinus.addActionListener(this);
+        buttonPanel.add(buttonMinus);
+        
+        buttonMultiply = new JButton("*");
+        buttonMultiply.addActionListener(this);
+        buttonPanel.add(buttonMultiply);
+        
+        buttonDivide = new JButton("/");
+        buttonDivide.addActionListener(this);
+        buttonPanel.add(buttonDivide);
+        
+        buttonEquals = new JButton("=");
+        buttonEquals.addActionListener(this);
+        buttonPanel.add(buttonEquals);
+        
+        buttonClear = new JButton("C");
+        buttonClear.addActionListener(this);
+        buttonPanel.add(buttonClear);
+        
+        add(buttonPanel, BorderLayout.CENTER);
+        
+        setVisible(true);
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button0) {
+            textField.setText(textField.getText() + "0");
+        } else if (e.getSource() == button1) {
+            textField.setText(textField.getText() + "1");
+        } else if (e.getSource() == button2) {
+            textField.setText(textField.getText() + "2");
+        } else if (e.getSource() == button3) {
+            textField.setText(textField.getText() + "3");
+        } else if (e.getSource() == button4) {
+            textField.setText(textField.getText() + "4");
+        } else if (e.getSource() == button5) {
+            textField.setText(textField.getText() + "5");
+        } else if (e.getSource() == button6) {
+            textField.setText(textField.getText() + "6");
+        } else if (
+
+
+
+   23. DEMONSTARET SWITCH STATEMENT,CONTINUE AND BREAK
+
+
+
+import java.util.Scanner;
+
+public class SwitchDemo {
+   public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      System.out.print("Enter a number between 1 and 5: ");
+      int number = scanner.nextInt();
+      
+      switch(number) {
+         case 1:
+            System.out.println("You entered 1.");
+            break;
+         case 2:
+            System.out.println("You entered 2.");
+            break;
+         case 3:
+            System.out.println("You entered 3.");
+            break;
+         case 4:
+            System.out.println("You entered 4.");
+            break;
+         case 5:
+            System.out.println("You entered 5.");
+            break;
+         default:
+            System.out.println("Invalid input.");
+            break;
+      }
+      
+      for(int i = 1; i <= 5; i++) {
+         if(i == number) {
+            continue;
+         }
+         System.out.println("The current number is " + i);
+      }
+   }
+}
+
+This program prompts the user to enter a number between 1 and 5, and then uses a switch statement to display a message based on the user's input. The break statement is used to exit the switch block once a matching case is found.
+
+After the switch statement, there is a for loop that counts from 1 to 5. The continue statement is used to skip over the current iteration of the loop if the loop variable i is equal to the user's input. This results in the loop skipping over the number that the user entered, and printing the message for the other numbers instead.
+
+
+
+OUTPUT 
+
+
+Enter a number between 1 and 5: 3
+You entered 3.
+The current number is 1
+The current number is 2
+The current number is 4
+The current number is 5
+
+Note that in this example, the user entered 3, so the program printed the message "You entered 3." as part of the switch statement. Then, the loop printed messages for the numbers 1, 2
+
+
+1. FOUR NUMBERS EQUAL 
+
+
+
+package Assignment;
+import java.util.Scanner;
+public class Assignment1 {
+ 
+            public static void main(String[] args) {
+                       
+                        Scanner s = new Scanner(System.in);
+                       
+            System.out.println("Enter four numbers: ");
+                       int a = s.nextInt();
+                       int b = s.nextInt();
+                       int c = s.nextInt();
+                       int d = s.nextInt();
+                       
+            if(a==b&&b==c&&c==d)
+                       System.out.println("All entered number are equal!");
+                       else
+                       System.out.println("All entered number are not equal!");
+                                   
+                       
+ 
+            }
+ 
+}
+
+
+  22. JDBC TO DISPLAY RECORDS FROM EXISTING TABLE
+
+
+
+import java.sql.*;
+
+public class DisplayRecords {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/mydatabase"; // replace mydatabase with the name of your database
+        String user = "root"; // replace root with your username
+        String password = "password"; // replace password with your password
+
+        try {
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM mytable"); // replace mytable with the name of your table
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+
+                System.out.println("ID: " + id + ", Name: " + name + ", Email: " + email);
+            }
+
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+
+12. CONCEPT OF ENCAPSULATION 
+
+public class BankAccount {
+    private double balance;
+    private String accountNumber;
+
+    public BankAccount(double balance, String accountNumber) {
+        this.balance = balance;
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+}
+
+
+In this example, we have a class called BankAccount that represents a bank account. It has two private instance variables, balance and accountNumber, which are both encapsulated and can only be accessed through public getter and setter methods.
+
+The getBalance() and getAccountNumber() methods allow external code to read the values of these variables, while the setBalance() and setAccountNumber() methods allow external code to update the values of these variables, subject to any validation or constraints that the class might impose.
+
+By encapsulating the balance and accountNumber variables and only exposing them through getter and setter methods, we ensure that external code can only interact with these variables in a controlled and safe manner. This helps to maintain the integrity of the data within the BankAccount class and prevent any unintended modifications that could lead to errors or security vulnerabilities.
+
+
+16. CHECK WHETHER THE NUMBER IS ARMSTRONG OR NOT
+
+
+
+import java.util.Scanner;
+
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        int num, originalNum, remainder, result = 0, n = 0;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number:");
+        num = scanner.nextInt();
+        originalNum = num;
+
+        // count number of digits
+        while (originalNum != 0) {
+            originalNum /= 10;
+            ++n;
+        }
+
+        originalNum = num;
+
+        // calculate sum of nth power of each digit
+        while (originalNum != 0) {
+            remainder = originalNum % 10;
+            result += Math.pow(remainder, n);
+            originalNum /= 10;
+        }
+
+        if (result == num)
+            System.out.println(num + " is an Armstrong number.");
+        else
+            System.out.println(num + " is not an Armstrong number.");
+    }
+}
+
+The user is prompted to enter a number using the Scanner class.
+The number of digits in the input number is counted using a while loop that divides the original number by 10 until it becomes 0. 
+The count is stored in the variable n.
+The input number is stored in another variable originalNum for later comparison.
+The sum of nth power of each digit is calculated using another while loop that calculates the remainder of the input number when divided by 10, raises it to the power of n, and adds it to the variable result.
+ The input number is then divided by 10 to get the next digit.
+If the value of result is equal to the input number, then the input number is an Armstrong number.
+ Otherwise, it is not.
+
+
+
+
+
+
+19. MULTIPLE CATCH STATEMENTS WITH TRY CATCH MECHANISM 
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class MultiCatchExample {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            System.out.print("Enter a number: ");
+            int num = Integer.parseInt(br.readLine());
+
+            int result = 100 / num;
+            System.out.println("Result: " + result);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero. Please enter a non-zero number.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading input. Please try again.");
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                System.out.println("An error occurred while closing the input stream.");
+            }
+        }
+    }
+}
+
+
+n this example, we're using a BufferedReader object to read input from the user. Within the try block, we're first parsing the user input as an integer and then dividing 100 by that integer.
+
+We're using multiple catch blocks to handle different types of exceptions that could occur within the try block:
+
+NumberFormatException is thrown when the user enters an invalid number format (e.g. "abc" instead of "123").
+ArithmeticException is thrown when the user enters zero, as division by zero is not possible.
+IOException is thrown when there's an error reading input from the user.
+The Exception catch block is a catch-all block that will handle any other type of exception that is not handled by the previous catch blocks.
+The finally block is used to close the BufferedReader object, regardless of whether an exception occurred or not.
+
+
+
+
+18. MATRIX MULTIPLICATION USING INPUT/ OUTPUT 
+
+
+
+
+import java.util.Scanner;
+
+public class MatrixMultiplication {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of rows and columns for matrix A: ");
+        int aRows = scanner.nextInt();
+        int aCols = scanner.nextInt();
+
+        int[][] a = new int[aRows][aCols];
+        System.out.println("Enter the values for matrix A: ");
+        for (int i = 0; i < aRows; i++) {
+            for (int j = 0; j < aCols; j++) {
+                a[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println("Enter the number of rows and columns for matrix B: ");
+        int bRows = scanner.nextInt();
+        int bCols = scanner.nextInt();
+
+        int[][] b = new int[bRows][bCols];
+        System.out.println("Enter the values for matrix B: ");
+        for (int i = 0; i < bRows; i++) {
+            for (int j = 0; j < bCols; j++) {
+                b[i][j] = scanner.nextInt();
+            }
+        }
+
+        if (aCols != bRows) {
+            System.out.println("Matrices cannot be multiplied. The number of columns of matrix A must be equal to the number of rows of matrix B.");
+            return;
+        }
+
+        int[][] c = new int[aRows][bCols];
+        for (int i = 0; i < aRows; i++) {
+            for (int j = 0; j < bCols; j++) {
+                for (int k = 0; k < aCols; k++) {
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+
+        System.out.println("The product of matrix A and matrix B is: ");
+        for (int i = 0; i < aRows; i++) {
+            for (int j = 0; j < bCols; j++) {
+                System.out.print(c[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+This program prompts the user to enter the number of rows and columns for each matrix, followed by the values for each matrix. It then checks if the matrices can be multiplied (i.e. if the number of columns of matrix A is equal to the number of rows of matrix B), performs the matrix multiplication, and prints the resulting matrix.
+
+
+17. ONE-D ARRAY IN ASCENDING ORDER 
+
+
+
+public class SortArray {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 3, 1, 6}; //initialize the array
+        int temp; // temporary variable to hold values during swapping
+        int n = arr.length;
+
+        // iterate through the array
+        for (int i = 0; i < n-1; i++) {
+            for (int j = 0; j < n-i-1; j++) {
+                // swap adjacent elements if they are in the wrong order
+                if (arr[j] > arr[j+1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+
+        // print the sorted array
+        System.out.println("Sorted Array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+In this program, we have used the bubble sort algorithm to sort the array elements in ascending order. We have iterated through the array using two nested loops, comparing adjacent elements and swapping them if they are in the wrong order. This process is repeated until the entire array is sorted in ascending order. Finally, we print the sorted array using a for loop.
+
+
+
+
+13. FUNCTION OVERLOADING OF POLYMORPHISM IN JAVA 
+
+
+public class Calculator {
+    
+    // Method for adding two integers
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+    
+    // Method for adding three integers
+    public int add(int num1, int num2, int num3) {
+        return num1 + num2 + num3;
+    }
+    
+    // Method for adding two doubles
+    public double add(double num1, double num2) {
+        return num1 + num2;
+    }
+    
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.add(2, 3)); // prints 5
+        System.out.println(calculator.add(2, 3, 4)); // prints 9
+        System.out.println(calculator.add(2.5, 3.5)); // prints 6.0
+    }
+}
+
+In this program, we have defined three methods with the same name add, but with different parameters. This is called function overloading, where multiple methods can have the same name but different parameters.
+
+The first add method takes two integers and returns their sum, the second add method takes three integers and returns their sum, and the third add method takes two doubles and returns their sum.
+
+In the main method, we create an instance of the Calculator class and call each of the add methods with different arguments. The Java compiler determines which add method to call based on the arguments passed to it. This is called polymorphism, where a single method name can have multiple implementations, depending on the parameters passed to it.
+
+When we run the program, it outputs the expected results for each of the add method calls.
+
+
+14. CONSTRUCTOR OVERLOADING OF POLYMORPHISM 
+
+
+
+public class Shape {
+   private double area;
+
+   public Shape() {
+      area = 0;
+   }
+
+   public Shape(double a) {
+      area = a;
+   }
+
+   public double getArea() {
+      return area;
+   }
+}
+
+public class Rectangle extends Shape {
+   private double length;
+   private double width;
+
+   public Rectangle() {
+      super();
+      length = 0;
+      width = 0;
+   }
+
+   public Rectangle(double l, double w) {
+      super(l * w);
+      length = l;
+      width = w;
+   }
+
+   public double getLength() {
+      return length;
+   }
+
+   public double getWidth() {
+      return width;
+   }
+}
+
+public class Square extends Rectangle {
+   public Square() {
+      super();
+   }
+
+   public Square(double s) {
+      super(s, s);
+   }
+}
+
+public class Main {
+   public static void main(String[] args) {
+      Shape s1 = new Shape();
+      Shape s2 = new Shape(10.0);
+      Rectangle r1 = new Rectangle();
+      Rectangle r2 = new Rectangle(5.0, 10.0);
+      Square sq1 = new Square();
+      Square sq2 = new Square(7.0);
+
+      System.out.println("Area of s1 is " + s1.getArea());
+      System.out.println("Area of s2 is " + s2.getArea());
+      System.out.println("Area of r1 is " + r1.getArea());
+      System.out.println("Area of r2 is " + r2.getArea());
+      System.out.println("Area of sq1 is " + sq1.getArea());
+      System.out.println("Area of sq2 is " + sq2.getArea());
+   }
+}
+
+
+
+This program defines three classes: Shape, Rectangle, and Square. Shape has two constructors, one with no parameters and one that takes a double representing the area of the shape. Rectangle extends Shape and has two constructors, one with no parameters and one that takes two doubles representing the length and width of the rectangle. Square extends Rectangle and has two constructors, one with no parameters and one that takes a single double representing the side length of the square.
+
+In the main method, we create six objects: two of Shape, two of Rectangle, and two of Square. We call the getArea method on each of these objects to demonstrate polymorphism in action - each object knows how to calculate its area, but the specific implementation of that calculation is different for each class.
+
+When we run the program, the output will be:
+Area of s1 is 0.0
+Area of s2 is 10.0
+Area of r1 is 0.0
+Area of r2 is 50.0
+Area of sq1 is 0.0
+Area of sq2 is 49.0
+
+
+
+15. BOOLEAN DATA TYPE PRINT PRIME NUMBERS UPTO 50
+
+public class PrimeNumbers {
+    public static void main(String[] args) {
+        boolean isPrime;
+
+        // loop through all numbers up to 50
+        for (int i = 2; i <= 50; i++) {
+            isPrime = true;
+
+            // check if the number is divisible by any number from 2 to itself-1
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            // print the number if it's prime
+            if (isPrime) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+
+In this program, we first initialize the boolean variable isPrime to true. Then, we loop through all numbers from 2 to 50 and check if each number is prime. To check if a number is prime, we loop through all numbers from 2 to itself-1 (since every number is divisible by 1 and itself) and check if it's divisible by any of them. If it is, we set isPrime to false and break out of the loop. If it's not, we leave isPrime as true. Finally, we print the number if it's prime. The output of this program will be:
+
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 
+
+
+11. DATABASE IN JDBC AND DOES ADD,DELETE, MODIFY, RETRIVE
+
+
+
+import java.sql.*;
+
+public class CRUDOperations {
+
+    // Database credentials
+    static final String DB_URL = "jdbc:mysql://localhost:3306/mydatabase";
+    static final String USER = "root";
+    static final String PASS = "password";
+
+    public static void main(String[] args) {
+
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            // Register JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Open a connection
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // Execute a query to create a new table if not exists
+            stmt = conn.createStatement();
+            String sql = "CREATE TABLE IF NOT EXISTS employees " +
+                    "(id INT NOT NULL AUTO_INCREMENT, " +
+                    " name VARCHAR(255), " +
+                    " age INT, " +
+                    " PRIMARY KEY ( id ))";
+            stmt.executeUpdate(sql);
+
+            // Insert a record
+            System.out.println("Inserting a new record...");
+            sql = "INSERT INTO employees (name, age) VALUES ('John', 25)";
+            stmt.executeUpdate(sql);
+
+            // Update a record
+            System.out.println("Updating the record...");
+            sql = "UPDATE employees SET age = 26 WHERE name = 'John'";
+            stmt.executeUpdate(sql);
+
+            // Retrieve records
+            System.out.println("Retrieving records...");
+            sql = "SELECT id, name, age FROM employees";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            // Print the retrieved records
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+                System.out.println("ID: " + id + ", Name: " + name + ", Age: " + age);
+            }
+
+            // Delete a record
+            System.out.println("Deleting the record...");
+            sql = "DELETE FROM employees WHERE name = 'John'";
+            stmt.executeUpdate(sql);
+
+            // Clean-up environment
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            // Handle errors for JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            // Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            // Finally block used to close resources
+            try {
+                if (stmt != null)
+                    stmt.close();
+            } catch (SQLException se2) {
+            }// nothing we can do
+            try {
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Goodbye!");
+    }
+}
+
+Note that you need to replace the DB_URL, USER, and PASS variables with your own database URL, username, and password. This example assumes you are using MySQL as your database. You may need to change the JDBC driver class name depending on the type of database you are using.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

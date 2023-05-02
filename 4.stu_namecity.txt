@@ -1,0 +1,36 @@
+package Assignment;
+import java.util.Scanner;
+class Student
+{
+ String name,city;
+ int age;
+ void addData()
+ {
+  Scanner i = new Scanner(System.in);
+  System.out.println("Enter name of the student: ");
+   name = i.next();
+  System.out.println("Enter city : ");
+   city = i.next();
+  System.out.println("Enter age of the student: ");
+   age = i.nextInt();
+ }
+ void printData()
+ {
+  System.out.println("\nStudent Details ");
+  System.out.println("Name: " + name);
+  System.out.println("City: " + city);
+  System.out.println("Age: " + age);
+ }
+}
+public class ps4 {
+          public static void main(String[] args) {
+  Student s1 = new Student();
+  Student s2 = new Student();
+  System.out.println("\nEnter Details of First Student: ");
+  s1.addData();
+  s1.printData();
+  System.out.println("\nEnter Details of Second Student: ");
+  s2.addData();
+  s2.printData();
+ }
+}

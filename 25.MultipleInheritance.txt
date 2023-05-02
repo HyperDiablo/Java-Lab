@@ -1,0 +1,80 @@
+// Java program to demonstrate How Diamond Problem
+// Is Handled in case of Default Methods
+
+// Interface 1
+interface GPI {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement
+		System.out.println("Default GPI");
+	}
+}
+
+// Interface 2
+// Extending the above interface
+interface PI1 extends GPI {
+}
+
+// Interface 3
+// Extending the above interface
+interface PI2 extends GPI {
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class
+		// in main() method
+		TestClass d = new TestClass();
+
+		// Now calling the function defined in interface 1
+		// from whom Interface 2and 3 are deriving
+		d.show();
+	}
+}
+
+***********************************************************************************************************
+
+
+interface MotorBike
+{
+int speed=50;
+public void totalDistance();
+}
+interface Cycle
+{
+int distance=150;
+public void speed();
+}
+public class TwoWheeler implements MotorBike,Cycle
+{
+int totalDistance;
+int avgSpeed;
+public void totalDistance()
+{
+totalDistance=speed*distance;
+System.out.println("Total Distance Travelled : "+totalDistance);
+}
+public void speed()
+{
+int avgSpeed=totalDistance/speed;
+System.out.println("Average Speed maintained : "+avgSpeed);
+}
+public static void main(String args[])
+{
+TwoWheeler t1=new TwoWheeler();
+t1.totalDistance();
+t1.speed();
+}
+}
+
+
+*********************************************************************************************************

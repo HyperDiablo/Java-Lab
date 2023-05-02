@@ -1,0 +1,47 @@
+package Assignment;
+
+import java.util.Scanner;
+
+public class Assignment1 {
+
+
+
+            public static void main(String[] args) {
+
+
+
+                        Scanner s = new Scanner(System.in);
+
+
+
+            System.out.println("Enter four numbers: ");
+
+                       int a = s.nextInt();
+
+                       int b = s.nextInt();
+
+                       int c = s.nextInt();
+
+                       int d = s.nextInt();
+
+
+
+            if(a==b&&b==c&&c==d)
+
+                       System.out.println("All entered number are equal!");
+
+                       else
+
+                       System.out.println("All entered number are not equal!");
+
+
+
+
+
+
+
+            }
+
+
+
+}

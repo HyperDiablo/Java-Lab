@@ -1,0 +1,35 @@
+package Assignment;
+import java.util.Scanner;
+class Student2
+{
+ int r;
+ String n;
+ void getData()
+ {
+  Scanner i = new Scanner(System.in);
+  System.out.println("Enter Roll No.: ");
+   r = i.nextInt();
+   System.out.println("Enter Name: ");
+   n = i.next();
+ }
+ void printData()
+ {
+  System.out.println("Roll No.: " + r + "\nName: " + n );
+ }
+}
+public class STest {
+ public static void main(String[] args) {
+  Student2 s1=new Student2();
+  Student2 s2=new Student2();
+
+ System.out.println("\n***********************STUDENT_DETAILS***********************");
+   System.out.println("\nEnter Details of First Student: ");
+  s1.getData();
+  System.out.println("\nEnter Details of Second Student: ");
+  s2.getData();
+  System.out.println("\nDetails of First Student: ");
+  s1.printData();
+  System.out.println("\nDetails of Second Student: ");
+  s2.printData();
+ }
+}

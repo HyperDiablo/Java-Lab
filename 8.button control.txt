@@ -1,0 +1,29 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Main {
+    public static void main (String[] args) {
+
+        Frame f = new Frame("Button");
+
+        Button b = new Button("Click Here");
+        TextArea tf=new TextArea();
+        tf.setBounds(50,50, 150,20);
+        b.setBounds(160,140,80,30);
+        f.add(b);
+        f.add(tf);
+
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tf.setText("Button Clicked");
+
+            }
+        });
+
+        f.setSize(400,400);
+        f.setLayout(null);
+        f.setVisible(true);
+    }
+}

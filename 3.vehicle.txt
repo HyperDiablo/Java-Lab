@@ -1,0 +1,129 @@
+package Jpl_h;
+
+class Vehicle
+{
+	String reg_no;
+	String color;
+	String type;
+	
+	Vehicle(String r, String c, String t)
+	{
+		reg_no=r;
+		color=c;
+		type=t;
+	}
+	
+	void display()
+	{
+		System.out.println("\nRegistration no : "+reg_no);
+		System.out.println("\nColor : "+color);
+		System.out.println("\nType : "+type);
+		
+	}
+
+}
+
+class Car extends Vehicle
+{
+	int cc;
+	int yr;
+	String fuel;
+	
+	Car(String r, String c, String t, int cc1, int y, String f )
+	{
+		super(r,c,t);
+		cc=cc1;
+		yr=y;
+		fuel=f;
+		
+	}
+	
+	void display()
+	{
+		
+		System.out.println("\n\nDetails of the Vehicle Car is :");
+		super.display();
+		System.out.println("\nCubic Capacity : "+cc);
+		System.out.println("\nYear of Making : "+yr);
+		System.out.println("\nFuel type : "+fuel);
+		
+	}
+	
+}
+
+class Truck extends Vehicle
+{
+	int cc;
+	int yr;
+	String fuel;
+	
+	Truck(String r, String c, String t, int cc1, int y, String f )
+	{
+		super(r,c,t);
+		cc=cc1;
+		yr=y;
+		fuel=f;
+		
+	}
+	
+	void display()
+	{
+
+		System.out.println("\nDetails of the Vehicle Truck is :");
+		super.display();
+		System.out.println("\nCubic Capacity : "+cc);
+		System.out.println("\nYear of Making : "+yr);
+		System.out.println("\nFuel type : "+fuel);
+		
+	}
+	
+	
+}
+
+class Motorcycle extends Vehicle
+{
+	int cc;
+	int yr;
+	String fuel;
+	
+	Motorcycle(String r, String c, String t, int cc1, int y, String f )
+	{
+		super(r,c,t);
+		cc=cc1;
+		yr=y;
+		fuel=f;
+		
+	}
+	
+	void display()
+	{
+	
+		System.out.println("\nDetails of the Vehicle Motorcycle is :");
+		super.display();
+		System.out.println("\nCubic Capacity : "+cc);
+		System.out.println("\nYear of Making : "+yr);
+		System.out.println("\nFuel type : "+fuel);
+		
+	}
+	
+}
+
+public class VehicleDemo {
+
+	public static void main(String[] args) {
+		Car c2;
+		Truck t1;
+		Motorcycle m1;
+		
+		c2=new Car("MH32178","Black","Four Wheeler",900,2010,"CNG");
+		t1=new Truck("MH65H66","Black","Six Wheeler",38000,2005,"Diesel");
+		m1=new Motorcycle("MH65H324","Black","two Wheeler",110,2023,"Petrol");
+		
+		c2.display();
+		t1.display();
+		m1.display();
+		
+
+	}
+
+}
