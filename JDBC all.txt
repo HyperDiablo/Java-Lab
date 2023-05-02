@@ -1,0 +1,168 @@
+1. Code to add records to database
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class ShowRecords {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//1. Load the driver
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Driver Loaded");
+			//2. create the connection
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root","Chinmay@123");
+			System.out.println("Connection Established");
+			PreparedStatement pstmt=con.prepareStatement("insert into student values(?,?,?)");
+			//take the input from user
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter First Name");
+			String fname=sc.next();
+			System.out.println("Enter last name");
+			String lname=sc.next();
+			System.out.println("Enter city ");
+			String city=sc.next();
+			//add into database
+			pstmt.setString(1, fname);
+			pstmt.setString(2, lname);
+			pstmt.setString(3, city);
+			int r=pstmt.executeUpdate();
+			if(r>0)
+			{
+				System.out.println("Record Inserted Successfully");
+			}
+			else
+			{
+				System.out.println("Not Inserted the records");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+
+2.Code to modify record
+
+
+package Mypackage;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+public class UpdateDemo 
+ {
+	public static void main(String[] args)
+	{
+	try
+	{
+	
+	//Load driver	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	System.out.println("Driver Loaded");
+	//2. create the connection
+	Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root","Chinmay@123");
+	System.out.println("Connection Established");
+	//update data in database
+	String query = "update student set firstname = ?, lastname = ?  where city = ?";
+	PreparedStatement preparedStmt = conn.prepareStatement(query);
+    preparedStmt.setString(1,"Akshay");
+    preparedStmt.setString(2,"Kokate");
+    preparedStmt.setString(3,"Nagpur");
+    
+    preparedStmt.executeUpdate();
+    conn.close();
+  }
+  catch (Exception e)
+  {
+    System.err.println("Got an exception! ");
+    System.err.println(e.getMessage());
+  }
+}
+}
+
+
+
+3. Program to retrieve the record
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class RetriewData {
+	public static void main(String[] args)
+	{
+	try
+	{
+	
+	//Load driver	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	System.out.println("Driver Loaded");
+	//2. create the connection
+	Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root","Chinmay@123");
+	System.out.println("Connection Established");
+	Statement stmt=conn.createStatement();	ResultSet res=stmt.executeQuery("select * from student");	
+	while(res.next())	
+	{		
+		System.out.println(res.getString(1)+" "+res.getString(2)+" "+res.getString(3));
+	}
+	conn.close();
+} catch (ClassNotFoundException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+
+}
+}
+
+
+4. Program to delete record
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+public class Deleteoperation {
+	
+	public static void main(String[] args)
+	{
+	try
+	{
+	
+	//Load driver	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	System.out.println("Driver Loaded");
+	//2. create the connection
+	Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root","Chinmay@123");
+	System.out.println("Connection Established");
+	//update data in database
+	String query = "delete from student where city = ?";
+	PreparedStatement preparedStmt = conn.prepareStatement(query);
+    preparedStmt.setString(1,"Pune");
+    preparedStmt.executeUpdate();
+    conn.close();
+  }
+  catch (Exception e)
+  {
+    System.err.println("Got an exception! ");
+    System.err.println(e.getMessage());
+  }
+}
+
+}
